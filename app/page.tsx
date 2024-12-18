@@ -14,8 +14,8 @@ export default function Home() {
       <LabtopSection />
       <MobileSection />
       <TabletsSection />
-      <Advantages />
       <Follow/>
+      <Advantages />
     </>
   );
 }

@@ -23,12 +23,14 @@ const Section = ({ img, className, url, text, x }: Props) => {
         height={1000}
         className="md:w-1/2 w-full h-1/2 md:h-full object-cover"
       />
+      <div className="md:w-1/2 w-full h-1/2 md:h-full flex flex-col gap-7 items-center justify-center">
+
       <motion.div
         initial={{ opacity: 0 , x:x }}
         whileInView={{ opacity: 1 ,x:0 }}
-        transition={{ duration: 0.8, ease: "easeInOut" }}
+        transition={{ duration: 0.9, ease: "easeInOut" ,delay:0.1}}
         viewport={{once:true}}
-        className="md:w-1/2 w-full h-1/2 md:h-full flex flex-col gap-7 items-center justify-center break-all"
+        className=" break-all flex flex-col gap-7 items-center justify-center"
       >
         <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-wide"> {text}</h1>
         <Link
@@ -38,6 +40,7 @@ const Section = ({ img, className, url, text, x }: Props) => {
           SHOP NOW
         </Link>
       </motion.div>
+      </div>
     </section>
   );
 };
