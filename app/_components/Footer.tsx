@@ -11,14 +11,15 @@ const Footer = () => {
   const lines = longText.split("\n");
 
   return (
-    <div className="flex flex-col justify-center items-center bg-slate-200 py-10 gap-8 *:mx-auto">
+    <div className="flex flex-col justify-center items-center bg-tealBlue py-10 gap-8 *:mx-auto">
       <div className="flex flex-col justify-center items-center gap-4 ">
-        <h1 className="text-4xl text-red-700 flex items-center gap-2 font-black">
-          <LucideTabletSmartphone size={40} /> Electronics
+        <h1 className="text-4xl text-paleBeige flex items-center gap-2 font-black tracking-widest">
+          <LucideTabletSmartphone className="text-deepCrimson" size={40} /> Electronics
         </h1>
         <div style={{ width: "500px", textAlign: "center" }}>
           {lines.map((line, index) => (
             <motion.div
+            className="text-pastelGreen"
               key={index}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -31,27 +32,27 @@ const Footer = () => {
           ))}
         </div>
       </div>
-      <div className="flex gap-10 text-lg tracking-widest">
+      <div className="flex gap-14 text-lg tracking-widest text-white ">
         <Link
-          className="hover:text-red-700 focus-visible:text-red-700 focus-visible:outline-none"
+          className="hover:text-deepCrimson focus-visible:text-deepCrimson focus-visible:outline-none"
           href={"/"}
         >
           Home
         </Link>
         <Link
-          className="hover:text-red-700 focus-visible:text-red-700 focus-visible:outline-none"
+          className="hover:text-deepCrimson focus-visible:text-deepCrimson focus-visible:outline-none"
           href={"/"}
         >
           Labtops
         </Link>
         <Link
-          className="hover:text-red-700 focus-visible:text-red-700 focus-visible:outline-none"
+          className="hover:text-deepCrimson focus-visible:text-deepCrimson focus-visible:outline-none"
           href={"/"}
         >
           Tablets
         </Link>
         <Link
-          className="hover:text-red-700 focus-visible:text-red-700 focus-visible:outline-none"
+          className="hover:text-deepCrimson focus-visible:text-deepCrimson focus-visible:outline-none"
           href={"/"}
         >
           Mobiles

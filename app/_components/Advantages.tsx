@@ -9,7 +9,7 @@ const Advantages = () => {
     {
       h: "Secure Payments",
       p: "Secured by Stripe",
-      icon: <LockKeyhole size={50} />,
+      icon: <LockKeyhole size={50}  />,
     },
     {
       h: "24/7 Support",
@@ -18,16 +18,16 @@ const Advantages = () => {
     },
   ];
   return (
-    <section className="max-w-screen-xl grid grid-cols-2 md:grid-cols-4 gap-2  px-4 md:px-2 mx-auto items-center my-4 md:my-20  ">
+    <section className=" container pb-16 relative px-2  max-w-screen-xl grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-7 lg:gap-14  mx-auto items-center">
       {array.map((a, i) => (
         <div
          
           key={i}
-          className=" text-black flex flex-col items-start justify-center gap-3 p-4 h-[200px]"
+          className=" border border-black/30 shadow-lg  rounded-3xl  flex flex-col items-start justify-center gap-3 p-4 h-[200px]"
         >
           {a.icon}
-          <h1 className="font-semibold text-2xl">{a.h}</h1>
-          <p className="text-slate-500 text-sm">{a.p}</p>
+          <h1 className="font-semibold text-2xl text-deepCrimson">{a.h}</h1>
+          <p className="text-black text-sm">{a.p}</p>
         </div>
       ))}
     </section>

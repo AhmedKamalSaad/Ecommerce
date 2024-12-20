@@ -1,21 +1,15 @@
 import {
   Hero,
-  LabtopSection,
-  MobileSection,
-  TabletsSection,
   Advantages,
-  Follow,
+  Categories
 } from "./_components";
 
 export default function Home() {
   return (
     <>
       <Hero />
-      <LabtopSection />
-      <MobileSection />
-      <TabletsSection />
-      <Follow/>
+      <Categories/>
       <Advantages />
-    </>
+     </>
   );
 }
