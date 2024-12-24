@@ -1,8 +1,21 @@
 "use client";
 import { motion, useMotionValueEvent, useScroll } from "framer-motion";
-import { Grid3X3, HomeIcon, ShoppingCart } from "lucide-react";
+import {
+  Grid3X3,
+  HomeIcon,
+  Laptop,
+  LucideSmartphone,
+  TabletSmartphoneIcon,
+} from "lucide-react";
 import Link from "next/link";
 import { useRef, useState } from "react";
+import SheetCart from "./SheetCart";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
 
 const NavBar = () => {
   const [isHidden, setIsHidden] = useState(false);
@@ -35,25 +48,60 @@ const NavBar = () => {
           <p className="hidden text-sm font-semibold sm:block">Home</p>
           <span className="sr-only">Home</span>
         </Link>
-        <Link href={"/"} title="Products" className=" flex items-end gap-2">
-          <Grid3X3 />
-          <span className="sr-only">Products</span>
-          <p className="hidden text-sm font-semibold sm:block">Products</p>
-        </Link>
-        {/* <Link href={"/"} title="Search" className=" flex items-end gap-2">
-          <SearchIcon />
-          <p className="hidden text-sm font-semibold sm:block">Search</p>
-
-          <span className="sr-only">Search</span>
-        </Link> */}
-        <Link href={"/"} title="Cart" className=" flex items-end gap-2">
-          <ShoppingCart />
-          <p className="hidden text-sm font-semibold sm:block">Cart</p>
-          <span className="sr-only">Cart</span>
-        </Link>
+        <ProductMenu />
+        <SheetCart />
       </nav>
     </motion.div>
   );
 };
 
 export default NavBar;
+
+const ProductMenu = () => {
+  return (
+    <DropdownMenu>
+      <DropdownMenuTrigger>
+        <div title="Products" className=" flex items-end gap-2">
+          <Grid3X3 />
+          <span className="sr-only">Products</span>
+          <p className="hidden text-sm font-semibold sm:block">Products</p>
+        </div>
+      </DropdownMenuTrigger>
+      <DropdownMenuContent className="bg-tealBlue">
+        <DropdownMenuItem>
+          <Link
+            href={"/mobiles"}
+            title="Mobiles"
+            className=" flex items-end gap-2"
+          >
+            <LucideSmartphone />
+            <span className="sr-only">Mobiles</span>
+            <p className="hidden text-sm font-semibold sm:block">Mobiles</p>
+          </Link>
+        </DropdownMenuItem>
+        <DropdownMenuItem className="hover:bg-red-200">
+          <Link
+            href={"/tablets"}
+            title="Tablets"
+            className=" flex items-end gap-2"
+          >
+            <TabletSmartphoneIcon />
+            <span className="sr-only">Tablets</span>
+            <p className="hidden text-sm font-semibold sm:block">Tablets</p>
+          </Link>
+        </DropdownMenuItem>
+        <DropdownMenuItem>
+          <Link
+            href={"/laptops"}
+            title="Laptops"
+            className=" flex items-end gap-2"
+          >
+            <Laptop />
+            <span className="sr-only">Laptops</span>
+            <p className="hidden text-sm font-semibold sm:block">Laptops</p>
+          </Link>
+        </DropdownMenuItem>
+      </DropdownMenuContent>
+    </DropdownMenu>
+  );
+};
