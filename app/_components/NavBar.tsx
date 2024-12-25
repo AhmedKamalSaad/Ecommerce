@@ -1,5 +1,7 @@
 "use client";
 import { motion, useMotionValueEvent, useScroll } from "framer-motion";
+import classNames from "classnames";
+
 import {
   Grid3X3,
   HomeIcon,
@@ -8,7 +10,7 @@ import {
   TabletSmartphoneIcon,
 } from "lucide-react";
 import Link from "next/link";
-import { useRef, useState } from "react";
+import { ReactNode, useRef, useState } from "react";
 import SheetCart from "./SheetCart";
 import {
   DropdownMenu,
@@ -16,6 +18,7 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
+import { usePathname } from "next/navigation";
 
 const NavBar = () => {
   const [isHidden, setIsHidden] = useState(false);
@@ -58,9 +61,18 @@ const NavBar = () => {
 export default NavBar;
 
 const ProductMenu = () => {
+  const path = usePathname();
+
   return (
     <DropdownMenu>
-      <DropdownMenuTrigger>
+      <DropdownMenuTrigger
+        className={`${
+          (path.includes("/mobiles") ||
+            path.includes("/tablets") ||
+            path.includes("/laptops")) &&
+          "bg-paleBeige text-deepCrimson"
+        }`}
+      >
         <div title="Products" className=" flex items-end gap-2">
           <Grid3X3 />
           <span className="sr-only">Products</span>
@@ -68,40 +80,58 @@ const ProductMenu = () => {
         </div>
       </DropdownMenuTrigger>
       <DropdownMenuContent className="bg-tealBlue">
-        <DropdownMenuItem>
-          <Link
-            href={"/mobiles"}
-            title="Mobiles"
-            className=" flex items-end gap-2"
-          >
-            <LucideSmartphone />
-            <span className="sr-only">Mobiles</span>
-            <p className="hidden text-sm font-semibold sm:block">Mobiles</p>
-          </Link>
-        </DropdownMenuItem>
-        <DropdownMenuItem className="hover:bg-red-200">
-          <Link
-            href={"/tablets"}
-            title="Tablets"
-            className=" flex items-end gap-2"
-          >
-            <TabletSmartphoneIcon />
-            <span className="sr-only">Tablets</span>
-            <p className="hidden text-sm font-semibold sm:block">Tablets</p>
-          </Link>
-        </DropdownMenuItem>
-        <DropdownMenuItem>
-          <Link
-            href={"/laptops"}
-            title="Laptops"
-            className=" flex items-end gap-2"
-          >
-            <Laptop />
-            <span className="sr-only">Laptops</span>
-            <p className="hidden text-sm font-semibold sm:block">Laptops</p>
-          </Link>
-        </DropdownMenuItem>
+        <ActiveLink
+          href="/mobiles"
+          title="Mobiles"
+          icon={<LucideSmartphone />}
+        />
+        <ActiveLink
+          href="/tablets"
+          title="Tablets"
+          icon={<TabletSmartphoneIcon />}
+        />
+        <ActiveLink href="/laptops" title="Laptops" icon={<Laptop />} />
       </DropdownMenuContent>
     </DropdownMenu>
+  );
+};
+
+export const ActiveLink = ({
+  href,
+  title,
+  icon,
+}: {
+  href: string;
+  title: string;
+  icon: ReactNode;
+}) => {
+  const path = usePathname();
+
+  const isActive = path === href;
+
+  return (
+    // <Link
+    //   href={href}
+    //   title={title}
+    //   className={classNames({
+    //     "flex items-end gap-2 w-full": true,
+    //     "bg-paleBeige text-deepCrimson": isActive,
+    //   })}
+    // >
+    //   {icon}
+    //   <span className="sr-only">{title}</span>
+    //   <p className="hidden text-sm font-semibold sm:block">{title}</p>
+    // </Link>
+    <DropdownMenuItem
+      className={classNames({
+        "bg-paleBeige text-deepCrimson": isActive,
+      })}
+    >
+      <Link href={href} title={title} className="flex items-end gap-2 w-full">
+        {icon}
+        <span className="sr-only">{title}</span>
+        <p className="hidden text-sm font-semibold sm:block">{title}</p>
+      </Link>
+    </DropdownMenuItem>
   );
 };
