@@ -26,8 +26,8 @@ const Card =  ({id, img, price, title }: Props) => {
           className="w-full h-full object-fill "
         />
       </div>
-      <div className="text-left pt-2 flex flex-col gap-1 ml-2 mb-2">
-        <p className="font-bold text-lg text-deepCrimson">{title}</p>
+      <div className="text-left pt-2 flex flex-col justify-between gap-1 ml-2 mb-2 ">
+        <p className="font-bold text-lg text-deepCrimson line-clamp-1">{title}</p>
         <p className="font-normal text-sm">{price} $</p>
         <AddToCartBtn product={product} />
       </div>

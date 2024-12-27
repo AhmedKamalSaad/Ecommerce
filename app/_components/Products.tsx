@@ -22,18 +22,20 @@ const Products = async ({ products, category, img, alt }: Props) => {
         </h1>
         <Image src={img} alt={alt} width={50} height={50} />
       </div>
-      <div className=" w-full mx-auto flex flex-col">
+      <div className=" w-full mx-auto flex flex-col px-2 md:px-0">
         <SelectForm />
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 my-6">
-          {products.map((p) => (
-            <Card
-              id={p.id}
-              img={p.thumbnail}
-              price={p.price}
-              title={p.title}
-              key={p.id}
-            />
-          ))}
+            {products.map((p) => (
+
+                <Card
+                  id={p.id}
+                  img={p.thumbnail}
+                  price={p.price}
+                  title={p.title}
+                  key={p.id}
+                />
+
+              ))}
         </div>
       </div>
     </section>

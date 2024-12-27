@@ -1,3 +1,4 @@
+import { Metadata } from "next";
 import Products from "../_components/Products";
 import { getProducts } from "@/lib/getProducts";
 
@@ -15,3 +16,7 @@ const page = async ({
 };
 
 export default page;
+export const metadata: Metadata = {
+  title: "Mobiles Section",
+  description: "Ecommerce website",
+};
