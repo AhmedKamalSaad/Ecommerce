@@ -79,7 +79,7 @@ const ProductMenu = () => {
           <p className="hidden text-sm font-semibold sm:block">Products</p>
         </div>
       </DropdownMenuTrigger>
-      <DropdownMenuContent className="bg-tealBlue">
+      <DropdownMenuContent className="bg-tealBlue space-y-1">
         <ActiveLink
           href="/mobiles"
           title="Mobiles"
@@ -110,24 +110,13 @@ export const ActiveLink = ({
   const isActive = path === href;
 
   return (
-    // <Link
-    //   href={href}
-    //   title={title}
-    //   className={classNames({
-    //     "flex items-end gap-2 w-full": true,
-    //     "bg-paleBeige text-deepCrimson": isActive,
-    //   })}
-    // >
-    //   {icon}
-    //   <span className="sr-only">{title}</span>
-    //   <p className="hidden text-sm font-semibold sm:block">{title}</p>
-    // </Link>
     <DropdownMenuItem
       className={classNames({
         "bg-paleBeige text-deepCrimson": isActive,
+        ' p-0 m-0':true
       })}
     >
-      <Link href={href} title={title} className="flex items-end gap-2 w-full">
+      <Link href={href} title={title} className="flex items-end gap-2 w-full p-2">
         {icon}
         <span className="sr-only">{title}</span>
         <p className="hidden text-sm font-semibold sm:block">{title}</p>
