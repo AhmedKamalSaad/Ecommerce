@@ -14,10 +14,10 @@ const Hero = () => {
             animate={{ scale: "1", opacity: 1 }}
             transition={{ duration: 0.8, ease: "easeInOut" }}
           >
-            <h1 className="text-6xl lg:text-7xl font-bold mb-3 text-paleBeige text-nowrap">
+            <h1 className="text-5xl lg:text-7xl font-bold mb-3 text-paleBeige sm:text-nowrap">
               Bold & Modern
             </h1>
-            <h3 className=" text-pastelGreen text-base mb-12 mx-auto md:mx-0 w-1/2  md:w-[85%] lg:w-[80%]">
+            <h3 className=" text-pastelGreen text-base mb-12 mx-auto md:mx-0 w-[70%]  md:w-[85%] lg:w-[80%]">
               Shop the latest models and get unbeatable deals on mobile phones,
               laptops, and tablets. Discover cutting-edge technology at your
               fingertips!

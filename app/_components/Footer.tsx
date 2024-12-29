@@ -5,21 +5,21 @@ import Link from "next/link";
 import React from "react";
 
 const Footer = () => {
-  const longText = `Discover cutting-edge laptops, mobile devices, and tablets
-   at unbeatable prices. Experience quality, innovation,
-   and top-notch customer service.`;
+  const longText = `Discover cutting-edge laptops, mobile devices,
+  and tablets at unbeatable prices. Experience
+  quality, innovation, and top-notch customer service.`;
   const lines = longText.split("\n");
 
   return (
     <div className="flex flex-col justify-center items-center bg-tealBlue py-10 gap-8 *:mx-auto">
-      <div className="flex flex-col justify-center items-center gap-4 ">
-        <h1 className="text-4xl text-paleBeige flex items-center gap-2 font-black tracking-widest">
+      <div className="flex flex-col justify-center items-center gap-4 mx-auto ">
+        <h1 className="text-4xl text-paleBeige flex items-center  gap-2 font-black tracking-widest ">
           <LucideTabletSmartphone className="text-deepCrimson" size={40} /> Electronics
         </h1>
-        <div style={{ width: "500px", textAlign: "center" }}>
+        <div style={{ maxWidth: "500px", textAlign: "center" }}>
           {lines.map((line, index) => (
             <motion.div
-            className="text-pastelGreen"
+            className="text-pastelGreen "
               key={index}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -32,7 +32,7 @@ const Footer = () => {
           ))}
         </div>
       </div>
-      <div className="flex gap-14 text-lg tracking-widest text-white ">
+      <div className="grid grid-cols-2 sm:grid-cols-4 gap-14 text-lg tracking-widest text-white items-center justify-center px-2 sm:px-0">
         <Link
           className="hover:text-deepCrimson focus-visible:text-deepCrimson focus-visible:outline-none"
           href={"/"}
